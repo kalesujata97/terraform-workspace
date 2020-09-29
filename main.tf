@@ -15,8 +15,8 @@ provider "aws" {
 resource "aws_s3_bucket" "example" {
   bucket = var.s3_buc_name
   acl = "private"
-  tags {
-    Name = var.s3_buc_name
+  tags = {
+    "Name" = var.s3_buc_name
   }
 
 }
