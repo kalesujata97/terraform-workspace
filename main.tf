@@ -22,18 +22,19 @@ resource "aws_s3_bucket" "s3_bucket" {
 resource "aws_iam_role" "s3_lambda_iam_role" {
   name = var.iam_s3_lambda
   assume_role_policy = <<EOF
-	{
-	"Version": "2012-10-17",
-	"Statement": [{
-		"Action": "sts:AssumeRole",
-		"Principal": {
-			"Service": "lambda.amazonaws.com"
-		},
-		"Effect": "Allow"
-	}]
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": "lambda.amazonaws.com"
+      },
+      "Effect": "Allow"
+    }
+  ]
 }
-	EOF
-
+EOF
   tags = {
     "Name" = var.iam_s3_lambda
   }
