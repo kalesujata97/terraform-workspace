@@ -59,15 +59,13 @@ resource "aws_iam_role_policy_attachment" "lambda-exec-policy-attach" {
 } 
 
 resource "aws_lambda_function" "s3_lambda_trigger" {
-  filename      = "lambda_function.zip"
-  function_name = "handler"
+  filename      = "my-function.zip"
+  function_name = "my-function"
   role          = aws_iam_role.s3_lambda_iam_role.arn
-  handler       = "handler.py"
+  handler       = "my-function.handler"
 
-  #source_code_hash = filebase64sha256("lambda_function.zip")
-
-  runtime = "python3.8"
-  
+  #source_code_hash = filebase64sha256("my-function.zip")
+  runtime = "python3.8"  
   depends_on = [aws_iam_role_policy_attachment.lambda-exec-policy-attach]
 }
 resource "aws_lambda_permission" "allow_bucket" {
@@ -84,7 +82,7 @@ resource "aws_s3_bucket_notification" "bucket_notification" {
 
   lambda_function {
     lambda_function_arn = aws_lambda_function.s3_lambda_trigger.arn
-    events              = ["s3:ObjectCreated:PUT"]
+    events              = ["s3:ObjectCreated:*"]
   }
   depends_on = [aws_lambda_function.s3_lambda_trigger]
 }
