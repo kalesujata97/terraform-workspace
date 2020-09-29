@@ -62,7 +62,7 @@ resource "aws_lambda_function" "s3_lambda_trigger" {
   filename      = "my-function.zip"
   function_name = "my-function"
   role          = aws_iam_role.s3_lambda_iam_role.arn
-  handler       = "my-function.handler"
+  handler       = "my-function.lambda_handler"
 
   #source_code_hash = filebase64sha256("my-function.zip")
   runtime = "python3.8"  
