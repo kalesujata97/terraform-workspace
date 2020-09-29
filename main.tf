@@ -41,6 +41,7 @@ EOF
   }
   depends_on = [aws_s3_bucket.s3_bucket]
 }
+
 resource "aws_iam_role_policy_attachment" "dynamo-full-policy-attach" {
   role       = aws_iam_role.s3_lambda_iam_role.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess"
@@ -97,5 +98,4 @@ resource "aws_dynamodb_table" "dynamodb-table" {
   } 
   depends_on = [aws_s3_bucket_notification.bucket_notification]  
 }
-  
 
