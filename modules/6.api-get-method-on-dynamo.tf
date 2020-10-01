@@ -69,6 +69,12 @@ EOF
   }
   depends_on = [aws_api_gateway_integration.dynamo]
 }
+resource "aws_api_gateway_deployment" "dynamo-get-api-deployment" { 
+  rest_api_id = aws_api_gateway_rest_api.dynamo-rest-api.id
+  stage_name  = "GetOnDynamo"
+  depends_on = [aws_api_gateway_integration.dynamo]
+}
+
 
 
 
