@@ -18,7 +18,7 @@ variable "dynamo_table_name" {
 
 variable "api_dynamo_iam_role_name" {
     type = string
-    default = "APIDynamoRole"
+    default = "APIDynamoIAMRole"
 }
 
 variable "api_gateway_name" {
