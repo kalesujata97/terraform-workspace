@@ -60,7 +60,7 @@ resource "aws_api_gateway_integration_response" "deleteIntegrationResponse" {
   }
   depends_on = [aws_api_gateway_integration.dynamo-delete]
 }
-resource "aws_api_gateway_deployment" "dynamo-api-deployment" {
+resource "aws_api_gateway_deployment" "dynamo-delete-api-deployment" {
   
   rest_api_id = aws_api_gateway_rest_api.dynamo-rest-api.id
   stage_name  = "DeleteOnDynamo"
