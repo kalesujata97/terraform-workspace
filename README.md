@@ -37,3 +37,29 @@ https://invoke-url/stage-name/empid (need to specify the employee id)
 for ex. https://0ns9bg3gde.execute-api.us-east-2.amazonaws.com/default/1
 
 You can see employee details returned.
+
+Your infrastructure setup is READY.
+
+Destroy the infrastructure: Go to your terraform cloud. Select your workspace. There you can find setting tab.  From settings select Destruction and delete option.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Steps to run this script on local:
+1. Terraform needs to be installed on local machine.
+2. Setup the aws configure with access key and secret key.
+3. Clone this repository.
+4. You need to remove the remote back end configuration from main.tf file. So that terraform will point to local.
+5. Go to that repo folder, open terminal.
+6. Execute the following commands on terminal:
+	terraform init
+	terraform plan
+	terraform apply
+terraform apply will ask confirmation just confirm it.
+
+Your infrastructure setup is READY.
+
+Destroy the infrastructure: Run following commands on terminal:
+	terraform plan -destroy
+	terraform destroy
+
+
